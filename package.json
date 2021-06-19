@@ -1,0 +1,21 @@
+{
+	"name": "hashtag_counter",
+	"version": "1.0.0",
+	"description": "",
+	"main": "app.js",
+	"scripts": {
+		"test": "jest --watchAll --verbose"
+	},
+	"keywords": [],
+	"author": "",
+	"license": "ISC",
+	"dependencies": {
+		"discord.js": "^12.5.3",
+		"fs": "^0.0.1-security",
+		"node-schedule": "^2.0.0"
+	},
+	"devDependencies": {
+		"@types/jest": "^26.0.23",
+		"jest": "^27.0.4"
+	}
+}

@@ -1,0 +1,7 @@
+node_modules
+.vscode
+
+appv1.js
+data.js
+stest.js
+package-lock.json
