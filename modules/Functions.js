@@ -1,7 +1,7 @@
 // 4. ===== GLOBAL FUNCTIONS =====
 
 // (STRING || FALSE BOOL) PARSE A MENTIONED USER OR ROLE BY REMOVING TOKENS
-export const parseMention = (mention) => {
+const parseMention = (mention) => {
 	if (mention.startsWith('<@') && mention.endsWith('>')) {
 		mention = mention.slice(2, -1);
 
@@ -15,7 +15,7 @@ export const parseMention = (mention) => {
 };
 
 // (STRING || FALSE BOOL) VALIDATE IF MESSAGE IS A VALID TOPIC
-export const validateMsg = (message) => {
+const validateMsg = (message, topics) => {
 	// Gather all topics into single array
 	const titles = Object.keys(topics).map((topic) => topic.toUpperCase());
 
@@ -34,7 +34,7 @@ export const validateMsg = (message) => {
 };
 
 // (BOOL) VALIDATE IF TOPIC IS VALID (is it necessary???)
-export const validateTopic = (topic) => {
+const validateTopic = (topic) => {
 	const mainTopics = Object.keys(topics).map((topic) => topic.toUpperCase());
 
 	// if (!(topic = validateMsg(topic))) return;
@@ -43,7 +43,7 @@ export const validateTopic = (topic) => {
 };
 
 // (UNDEFINED) UPDATE ROLES LIST
-export const updateRoles = (e) => {
+const updateRoles = (e) => {
 	// First validate changes on roles
 	const allRoles = Object.keys(roles).sort().join(',');
 
@@ -77,7 +77,7 @@ export const updateRoles = (e) => {
 };
 
 // (ROLE || FALSE BOOL) VALIDATE ROLE EXISTENCE IN CURRENT LIST OF ROLES
-export const searchRole = (role) => {
+const searchRole = (role) => {
 	for (const key in roles) {
 		if (roles[key].id == role) {
 			console.log(`THE ROLE IS: ${roles[key].name}`);
@@ -88,7 +88,7 @@ export const searchRole = (role) => {
 };
 
 // (VOID FUNCTION || FALSE BOOL) VALIDATE HASHTAGS AND ADD THEM TO THE USER
-export const htagCounter = (e) => {
+const htagCounter = (e) => {
 	// Validate hashtag
 	const message = e.content.toString();
 	const sender = e.member;
@@ -117,7 +117,7 @@ export const htagCounter = (e) => {
 };
 
 // (VOID FUNCTION || FALSE BOOL) VALIDATE COMMANDS AND SEND REPORTS TO THE CHAT
-export const cmdValidator = (e) => {
+const cmdValidator = (e) => {
 	let tokens = e.content.split(' ');
 	let mention = tokens[1];
 	const command = tokens[0];
@@ -182,4 +182,14 @@ export const cmdValidator = (e) => {
 	return e.channel.send(
 		'Tag an existing user/topic/role after the "!stats" command!'
 	);
+};
+
+module.exports = {
+	parseMention,
+	validateMsg,
+	validateTopic,
+	updateRoles,
+	searchRole,
+	htagCounter,
+	cmdValidator,
 };

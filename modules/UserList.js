@@ -1,5 +1,5 @@
 // 5.2 USERLIST CLASS
-export default class UserList {
+class UserList {
 	constructor() {
 		this.data = [];
 	}
@@ -145,3 +145,5 @@ export default class UserList {
 		return parseString;
 	}
 }
+
+module.exports = UserList;

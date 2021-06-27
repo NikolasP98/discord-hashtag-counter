@@ -1,7 +1,11 @@
 // 1. ===== IMPORTS =====
-import Sensitive from './modules/data';
-import User from './modules/User.js';
-import UserList from './modules/UserList.js';
+
+// 1.1 MODULES
+const Sensitive = require('./modules/data');
+const User = require('./modules/User');
+const UserList = require('./modules/UserList');
+
+// 1.2 PACKAGES
 const Discord = require('discord.js');
 const schedule = require('node-schedule');
 

@@ -1,5 +1,5 @@
 // 5.1 USER CLASS
-export default class User {
+class User {
 	constructor(nativeUser) {
 		this.id = nativeUser.user.id.toString();
 		this.name = nativeUser.user.username.toString();
@@ -50,3 +50,5 @@ export default class User {
 		return parseString;
 	}
 }
+
+module.exports = User;
